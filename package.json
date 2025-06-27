@@ -8,7 +8,8 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development tsx watch src/main.ts",
     "dev:fast": "cross-env NODE_ENV=development tsx --watch --clear-screen src/main.ts",
-    "build": "tsc",
+    "build": "swc src -d dist",
+    "build:check": "tsc --noEmit",
     "start": "node dist/main.js",
     "db:migrate": "prisma migrate deploy",
     "db:generate": "prisma generate",
@@ -21,7 +22,8 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "prepare": "husky"
   },
   "keywords": [
     "node",
@@ -39,5 +41,52 @@
   "bugs": {
     "url": "https://github.com/gabyballester/km0-api-node-ts/issues"
   },
-  "homepage": "https://github.com/gabyballester/km0-api-node-ts#readme"
+  "homepage": "https://github.com/gabyballester/km0-api-node-ts#readme",
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{js,jsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md,yml,yaml}": [
+      "prettier --write"
+    ]
+  },
+  "dependencies": {
+    "compression": "^1.8.0",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.0",
+    "express": "^5.1.0",
+    "express-rate-limit": "^7.5.1",
+    "helmet": "^8.1.0",
+    "winston": "^3.17.0",
+    "zod": "^3.25.67"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "@eslint/js": "^9.29.0",
+    "@swc/core": "^1.4.8",
+    "@types/compression": "^1.8.1",
+    "@types/cookie-parser": "^1.4.9",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.0.4",
+    "@typescript-eslint/eslint-plugin": "^8.35.0",
+    "@typescript-eslint/parser": "^8.35.0",
+    "cross-env": "^7.0.3",
+    "eslint": "^9.29.0",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-prettier": "^5.5.1",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.2",
+    "prettier": "^3.6.2",
+    "swc": "^1.4.8",
+    "tsx": "^4.20.3",
+    "typescript": "^5.8.3"
+  }
 }
