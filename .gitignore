@@ -13,8 +13,6 @@ logs/
 *.log
 
 # Legacy folders (NO versionar)
-api-v1/
-api-v2/
 legacy/
 
 # IDE
