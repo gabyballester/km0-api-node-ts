@@ -4,7 +4,7 @@ node_modules/
 # Build output
 dist/
 
-# Entornos y variables sensibles
+# Environment variables
 .env
 .env.*
 
@@ -12,6 +12,15 @@ dist/
 logs/
 *.log
 
-# Legacy (NO versionar tus ejemplos)
+# Legacy folders (NO versionar)
 api-v1/
 api-v2/
+legacy/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db

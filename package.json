@@ -1,12 +1,43 @@
 {
   "name": "km0-api-node-ts",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "Backend API escalable con TypeScript, Express y Prisma",
+  "main": "dist/main.js",
+  "author": "Gabi",
+  "license": "MIT",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "cross-env NODE_ENV=development tsx watch src/main.ts",
+    "dev:fast": "cross-env NODE_ENV=development tsx --watch --clear-screen src/main.ts",
+    "build": "tsc",
+    "start": "node dist/main.js",
+    "db:migrate": "prisma migrate deploy",
+    "db:generate": "prisma generate",
+    "db:studio": "prisma studio",
+    "db:seed": "ts-node src/scripts/seed.ts",
+    "db:reset": "prisma migrate reset --force && npm run db:seed",
+    "lint": "eslint src --ext .ts",
+    "lint:fix": "eslint src --ext .ts --fix",
+    "format": "prettier --write src/**/*.ts",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "type-check": "tsc --noEmit"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": ""
+  "keywords": [
+    "node",
+    "typescript",
+    "express",
+    "api",
+    "prisma",
+    "postgresql",
+    "clean-architecture"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gabyballester/km0-api-node-ts.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gabyballester/km0-api-node-ts/issues"
+  },
+  "homepage": "https://github.com/gabyballester/km0-api-node-ts#readme"
 }
