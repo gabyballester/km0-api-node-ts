@@ -1,0 +1,17 @@
+# Node modules
+node_modules/
+
+# Build output
+dist/
+
+# Entornos y variables sensibles
+.env
+.env.*
+
+# Logs
+logs/
+*.log
+
+# Legacy (NO versionar tus ejemplos)
+api-v1/
+api-v2/
